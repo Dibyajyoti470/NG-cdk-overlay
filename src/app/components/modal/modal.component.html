@@ -1,0 +1,25 @@
+<button
+  class="px-4 py-2 border rounded-md hover:bg-slate-50 transition-all duration-200"
+  (click)="openModal()"
+>
+  Open Modal
+</button>
+
+<ng-template cdkPortal>
+  <div
+    [@modalAnimation]
+    class="flex flex-col gap-4 p-8 relative border bg-white rounded-md shadow-md"
+  >
+    <h4 class="text-xl font-bold leading-4">Modal Sample</h4>
+    <p>
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Ea possimus nobis
+      odio provident ab incidunt, perferendis consectetur deleniti placeat,
+      cupiditate quas id. Eius maiores modi incidunt? Eius eum quis magnam.
+      Facilis, impedit.
+    </p>
+    <button class="text-lg absolute top-4 right-4" (click)="closeModal()">
+      <ion-icon name="close-outline"></ion-icon>
+    </button>
+    <app-dropdown></app-dropdown>
+  </div>
+</ng-template>

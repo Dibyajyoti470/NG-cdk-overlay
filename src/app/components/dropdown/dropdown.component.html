@@ -1,0 +1,26 @@
+<button
+  class="flex justify-between items-center w-60 px-4 py-2 border rounded-md hover:bg-slate-50 transition-all duration-200"
+  [class.open]="menuOpen"
+  cdkOverlayOrigin
+  #trigger="cdkOverlayOrigin"
+  (click)="menuOpen = !menuOpen"
+>
+  <span>{{ selectedOption || "Select fruit" }}</span>
+  <ion-icon
+    class="arrow-icon"
+    [ngClass]="{ 'menu-open': menuOpen }"
+    name="chevron-down-outline"
+  ></ion-icon>
+</button>
+
+<ng-template
+  cdkConnectedOverlay
+  [cdkConnectedOverlayOrigin]="trigger"
+  [cdkConnectedOverlayOpen]="menuOpen"
+  [cdkConnectedOverlayOffsetY]="4"
+>
+  <app-dropdown-menu
+    [selected]="selectedOption"
+    (onSelect)="handleSelect($event)"
+  ></app-dropdown-menu>
+</ng-template>

@@ -1,0 +1,7 @@
+.arrow-icon {
+  transition: transform 0.2s ease-in-out;
+
+  &.menu-open {
+    transform: rotate(180deg);
+  }
+}
